@@ -36,6 +36,7 @@
     height: 30px;
     border-color: unset;
     background-color: thistle;
+    color: tomato;
 }
 
 .form-container input, .searchField input {
