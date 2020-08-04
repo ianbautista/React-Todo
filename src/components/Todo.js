@@ -8,7 +8,7 @@ export default function Todo(props) {
 				event.preventDefault();
 				props.changeHandler(props.todo.id);
 			}}
-			className={`${props.todo.completed ? " completed" : ""}`}
+			className={`${props.todo.completed ? "todo completed" : "todo"}`}
 		>
 			{props.todo.task}
 		</h2>

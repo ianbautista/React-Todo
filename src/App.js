@@ -2,6 +2,7 @@ import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import SearchBar from "./components/SearchBar";
+import "./App.css";
 
 const todoData = [
 	{
@@ -79,8 +80,8 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h2>Welcome to your Todo App!</h2>
+			<div className="main-div">
+				<h2 className="Title">Welcome to your Todo App!</h2>
 				<SearchBar onSearchChange={this.onSearchChange} />​
 				{this.state.todoSearch.length > 0 ? (
 					<TodoList todoData={this.state.todoSearch} changeHandler={this.changeHandler} />

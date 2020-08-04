@@ -10,7 +10,7 @@ class TodoForm extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="form-container">
 				<form
 					onSubmit={(event) => {
 						event.preventDefault();
@@ -27,6 +27,7 @@ class TodoForm extends React.Component {
 							this.setState({ value: event.target.value });
 						}}
 					></input>
+					<br />
 					<button type="submit">Add Todo</button>
 				</form>
 			</div>
