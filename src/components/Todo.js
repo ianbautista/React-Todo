@@ -1,4 +1,5 @@
 import React from "react";
+import "./Todo.css";
 
 export default function Todo(props) {
 	return (
@@ -6,10 +7,10 @@ export default function Todo(props) {
 			onClick={(event) => {
 				event.preventDefault();
 				props.changeHandler(props.todo.id);
-				event.target.style.textDecoration = "line-through";
 			}}
+			className={`${props.todo.completed ? " completed" : ""}`}
 		>
-			{props.todo.task} <span> {props.todo.id}</span>
+			{props.todo.task}
 		</h2>
 	);
 }

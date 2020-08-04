@@ -22,6 +22,7 @@ class App extends React.Component {
 		super();
 		this.state = {
 			todoData,
+			todoSearch: [],
 		};
 	}
 	// design `App` to be the parent component of your application.
@@ -56,17 +57,37 @@ class App extends React.Component {
 		});
 	};
 
-	onSearchChange = (event) => {
-		const { value } = event.target;
-		this.setState(value);
+	onSearchChange = (query) => {
+		const newTodo = this.state.todoData.filter((todo) => {
+			if (todo.task.toLowerCase().includes(query) && query !== "") {
+				return todo;
+			} else {
+				return;
+			}
+		});
+
+		if (newTodo.length !== 0) {
+			this.setState({
+				todoSearch: newTodo,
+			});
+		} else {
+			this.setState({
+				todoSearch: [],
+			});
+		}
 	};
 
 	render() {
 		return (
 			<div>
 				<h2>Welcome to your Todo App!</h2>
-				<SearchBar onSearchChange={this.onSearchChange} />
-				<TodoList todoData={this.state.todoData} changeHandler={this.changeHandler} />
+				<SearchBar onSearchChange={this.onSearchChange} />​
+				{this.state.todoSearch.length > 0 ? (
+					<TodoList todoData={this.state.todoSearch} changeHandler={this.changeHandler} />
+				) : (
+					<TodoList todoData={this.state.todoData} changeHandler={this.changeHandler} />
+				)}
+				​
 				<TodoForm addHandler={this.addHandler} />
 				<button
 					onClick={() => {

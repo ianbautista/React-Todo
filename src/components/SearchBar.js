@@ -16,8 +16,7 @@ class SearchBar extends React.Component {
 						placeholder="Search Todo"
 						value={this.state.seach}
 						onChange={(event) => {
-							console.log(event.target.value);
-							this.setState({ search: event.target.value });
+							this.props.onSearchChange(event.target.value);
 						}}
 					/>
 					{/* <button type="submit" className="search-btn" onClick={onInputChange}>
