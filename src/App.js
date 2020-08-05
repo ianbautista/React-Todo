@@ -63,11 +63,11 @@ class App extends React.Component {
 			if (todo.task.toLowerCase().includes(query) && query !== "") {
 				return todo;
 			} else {
-				return;
+				return null;
 			}
 		});
 
-		if (newTodo.length !== 0) {
+		if (newTodo !== 0) {
 			this.setState({
 				todoSearch: newTodo,
 			});
