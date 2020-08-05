@@ -60,7 +60,7 @@ class App extends React.Component {
 
 	onSearchChange = (query) => {
 		const newTodo = this.state.todoData.filter((todo) => {
-			if (todo.task.toLowerCase().includes(query) && query !== "") {
+			if (todo.task.toLowerCase().includes(query.toLowerCase()) && query !== "") {
 				return todo;
 			} else {
 				return null;
